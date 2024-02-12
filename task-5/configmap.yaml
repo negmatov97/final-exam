@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  author: negmatov
+  exam_type: "Final Exam"
+kind: ConfigMap
+metadata:
+  name: configmaps
+  namespace: negmatov

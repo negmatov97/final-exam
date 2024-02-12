@@ -1,0 +1,2 @@
+kaf service.yaml
+k exec -it nginx1 -n negmatov -- "/bin/bash" -c "curl http://final-exam:5000/env"

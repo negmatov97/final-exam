@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: nginx
+  name: nginx
+  namespace: negmatov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - image: nginx
+        name: nginx
+        command:
+          - "/bin/bash"
+          - "-c"
+          - "echo My name is $AUTHOR and this is my $EXAM_TYPE"
+        env:
+        - name: AUTHOR
+          valueFrom:
+            configMapKeyRef:
+              name: configmaps
+              key: author
+        - name: EXAM_TYPE
+          valueFrom:
+            configMapKeyRef:
+              name: configmaps
+              key: exam_type
+

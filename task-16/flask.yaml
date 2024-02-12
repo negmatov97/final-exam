@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-final-exam
+  namespace: negmatov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-final-exam
+  template:
+    metadata:
+      labels:
+        app: flask-final-exam
+    spec:
+      nodeSelector:
+        negmatov: "true"
+      containers:
+      - name: flask-final-exam
+        image: nvrbckdown/flask-app:final-exam
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: file-volume
+          mountPath: /mnt
+      volumes:
+      - name: file-volume
+        hostPath:
+          path: /mnt
+          type: DirectoryOrCreate
+

@@ -1,0 +1,1 @@
+kubectl create secret docker-registry ng-secret --docker-username=devops --docker-password=devopsTheBest --docker-email=proxima_uacademy@gmail.com --namespace=negmatov --dry-run=client   -o yaml > docker-registry-secret.yaml

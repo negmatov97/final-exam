@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-something-duplicate
+  namespace: negmatov
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-something-duplicate
+  template:
+    metadata:
+      labels:
+        app: frontend-something-duplicate
+    spec:
+      nodeSelector:
+        final: exam
+      containers:
+      - name: frontend-container
+        image: nvrbckdown/something
+        ports:
+        - containerPort: 80
+

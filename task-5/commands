@@ -1,0 +1,2 @@
+kaf nginx.yaml
+k logs nginx-85f4898784-wjtd5 -n negmatov >> output.txt
